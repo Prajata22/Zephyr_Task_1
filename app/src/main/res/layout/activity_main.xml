@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_layout"
+    android:background="@color/grey">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/white"
+        android:background="@color/colorPrimaryDark"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:shimmer_repeat_mode="restart"
+                android:background="@color/grey"
+                android:paddingTop="8dp"
+                app:shimmer_shape="radial">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
+                    <include layout="@layout/layout_shimmer" />
+
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingTop="8dp"
+                android:overScrollMode="never"
+                android:descendantFocusability="blocksDescendants" />
+
+            <ProgressBar
+                android:id="@+id/progress_more"
+                android:layout_below="@id/recycler_list"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/error"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_marginTop="400dp"
+                android:layout_centerInParent="true"
+                android:layout_height="250dp"/>
+
+            <ImageView
+                android:id="@+id/no_data"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_marginTop="400dp"
+                android:layout_centerInParent="true"
+                android:layout_height="250dp"/>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/create_form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_create_form"
+        app:iconTint="@color/white"
+        android:textSize="14sp"
+        app:iconPadding="13dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:iconSize="20dp"
+        android:text="@string/create_form"
+        android:textColor="@color/white"
+        android:layout_marginEnd="20dp"
+        app:elevation="10dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="30dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
